@@ -27,7 +27,7 @@
                 <ul class="nav-links">
                     <li><a href="#about">My Story</a></li>
                     <li><a href="#philosophy">Metfix & Philosophy</a></li>
-                    <li><a href="#affiliations">Affiliations</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#legacy">Legacy</a></li>
                     <li><a href="#contact" class="btn">Get Started</a></li>
                 </ul>
@@ -97,24 +97,23 @@
         </div>
     </section>
 
-    <!-- Affiliations Section (New) -->
-    <section id="affiliations" class="section-padding" style="background-color: #e2e8f0;">
+    <!-- Gallery / Carousel Section -->
+    <section id="gallery" class="section-padding" style="background-color: var(--bg-color);">
         <div class="container text-center">
-             <h2 class="section-title" style="color: var(--primary-color);">Affiliations</h2>
-             <div class="affiliations-grid" style="display: flex; justify-content: center; gap: 50px; margin-top: 40px; flex-wrap: wrap;">
-                 <a href="#philosophy" class="affiliation-link">
-                     <div class="affiliation-item">
-                         <i class="fas fa-bolt fa-3x" style="color: var(--primary-color);"></i>
-                         <h3 style="margin-top: 15px; color: var(--primary-color);">Metfix</h3>
-                     </div>
-                 </a>
-                 <a href="https://brokenscience.org/" target="_blank" class="affiliation-link">
-                     <div class="affiliation-item">
-                         <i class="fas fa-dna fa-3x" style="color: var(--primary-color);"></i>
-                         <h3 style="margin-top: 15px; color: var(--primary-color);">Broken Science</h3>
-                     </div>
-                 </a>
-             </div>
+            <h2 class="section-title">In The Gym</h2>
+            <p>Training, coaching, and building strength.</p>
+            
+            <div class="carousel-container">
+                <button id="prevBtn" class="carousel-btn"><i class="fas fa-chevron-left"></i></button>
+                <button id="nextBtn" class="carousel-btn"><i class="fas fa-chevron-right"></i></button>
+                
+                <div class="carousel-slide">
+                    <!-- Placeholder Images for Carousel -->
+                    <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Training 1">
+                    <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Training 2">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Training 3">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -140,7 +139,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section-padding" style="background-color: var(--bg-color);">
+    <section id="contact" class="section-padding" style="background-color: #e2e8f0;">
         <div class="container">
             <div class="contact-container">
                 <h2 class="section-title">Start Your Journey</h2>
@@ -167,6 +166,16 @@
     <!-- Footer -->
     <footer>
         <div class="container">
+            <!-- Affiliations in Footer -->
+            <div class="footer-affiliations">
+                 <a href="https://brokenscience.org/" target="_blank">
+                     <img src="assets/brokenscience.svg" alt="Broken Science" class="footer-logo">
+                 </a>
+                 <a href="#philosophy">
+                     <img src="assets/metfix.svg" alt="Metfix" class="footer-logo">
+                 </a>
+            </div>
+            
             <p>&copy; 2026 Coach Danielle Edmundson. All Rights Reserved.</p>
             <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6;">Designed with strength.</p>
         </div>

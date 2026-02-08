@@ -73,18 +73,8 @@ img {
     color: var(--accent-color);
 }
 
-.btn-outline {
-    background-color: transparent;
-    border: 2px solid var(--white);
-}
-
-.btn-outline:hover {
-    background-color: var(--white);
-    color: var(--primary-color);
-}
-
 .section-padding {
-    padding: 100px 0; /* Increased padding for better spacing */
+    padding: 100px 0;
 }
 
 .text-center {
@@ -116,21 +106,27 @@ header {
     top: 0;
     z-index: 1000;
     height: var(--header-height);
+    /* Ensure content is vertically centered */
     display: flex;
-    align-items: center;
+    align-items: center; 
 }
 
+/* Ensure the nav container fills height and aligns items */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    height: 100%; 
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: 800;
     color: var(--primary-color);
+    /* Ensure logo text is centered vertically if it has line-height issues */
+    display: flex;
+    align-items: center; 
 }
 
 .logo span {
@@ -140,12 +136,16 @@ nav {
 .nav-links {
     display: flex;
     gap: 30px;
+    align-items: center; /* Vertically align links with logo */
+    height: 100%;
 }
 
 .nav-links a {
     font-weight: 600;
     font-size: 0.9rem;
     text-transform: uppercase;
+    display: flex; /* Helps with vertical alignment of text */
+    align-items: center;
 }
 
 .nav-links a:hover {
@@ -206,19 +206,30 @@ nav {
 
 /* About Section */
 #about {
-    margin-top: 50px; /* Extra margin to ensure distinct separation from hero/header area */
+    margin-top: 50px; 
 }
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
+    grid-template-columns: 1fr 1.5fr; /* Changed to give text more room (1 part img, 1.5 parts text) */
+    gap: 40px; /* Reduced gap to tighten whitespace */
+    align-items: start; /* Align to top so text doesn't float in middle if image is short */
+}
+
+.about-img {
+    /* Optional: constrain image width if needed */
+    max-width: 400px;
+    margin: 0 auto; 
 }
 
 .about-img img {
     border-radius: 10px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    object-fit: cover; /* Ensures image covers area nicely */
+}
+
+.about-content h3 {
+    margin-top: 0; /* Remove top margin to align with top of image */
 }
 
 .about-content p {
@@ -261,19 +272,53 @@ nav {
     margin-bottom: 15px;
 }
 
-/* Affiliations */
-.affiliation-link:hover .affiliation-item {
-    transform: translateY(-5px);
-}
-
-.affiliation-item {
-    transition: var(--transition);
-    padding: 20px;
+/* Gallery / Carousel Section */
+.carousel-container {
+    position: relative;
+    max-width: 800px; /* Constrain width for better look */
+    margin: 40px auto 0;
+    overflow: hidden;
     border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
+.carousel-slide {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
 
-/* Media Section (Legacy) */
+.carousel-slide img {
+    width: 100%;
+    flex-shrink: 0;
+    object-fit: cover;
+    height: 500px; /* Fixed height for consistency */
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    z-index: 10;
+    transition: var(--transition);
+}
+
+.carousel-btn:hover {
+    background: var(--accent-color);
+}
+
+#prevBtn { left: 20px; }
+#nextBtn { right: 20px; }
+
+
+/* Legacy Section */
 .video-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
@@ -320,12 +365,35 @@ nav {
 
 /* Footer */
 footer {
-    background-color: #000;
-    color: #888;
+    background-color: #0f172a; /* Dark background matching primary */
+    color: #cbd5e1;
     text-align: center;
-    padding: 40px 0;
+    padding: 60px 0 30px;
     font-size: 0.9rem;
 }
+
+.footer-affiliations {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    height: 50px; /* Standardize logo height */
+    width: auto;
+    opacity: 0.8;
+    transition: var(--transition);
+    filter: brightness(0) invert(1); /* Make SVGs white if they are colored */
+}
+
+.footer-logo:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
@@ -334,7 +402,7 @@ footer {
     }
 
     .nav-links {
-        display: none; /* Hidden by default */
+        display: none; 
         position: absolute;
         top: var(--header-height);
         left: 0;
@@ -346,7 +414,6 @@ footer {
         box-shadow: 0 10px 10px rgba(0,0,0,0.1);
     }
 
-    /* The "active" class will be toggled by JS to show the menu */
     .nav-links.active {
         display: flex;
         animation: dropDown 0.3s ease forwards;
@@ -373,5 +440,9 @@ footer {
     
     .video-grid {
          grid-template-columns: 1fr;
+    }
+
+    .carousel-slide img {
+        height: 300px; /* Smaller carousel on mobile */
     }
 }
