@@ -409,6 +409,8 @@ footer {
         top: var(--header-height);
         left: 0;
         width: 100%;
+        height: auto; /* Allow menu to expand to fit all links */
+        margin: 0; /* Reset desktop margins */
         background-color: var(--white);
         flex-direction: column;
         text-align: center;
