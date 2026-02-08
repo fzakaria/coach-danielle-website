@@ -127,6 +127,7 @@ nav {
     /* Ensure logo text is centered vertically if it has line-height issues */
     display: flex;
     align-items: center; 
+    margin-right: auto; /* Push everything else to the right */
 }
 
 .logo span {
@@ -135,7 +136,7 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 30px;
+    gap: 40px; /* Increased gap between links */
     align-items: center; /* Vertically align links with logo */
     height: 100%;
 }
@@ -386,7 +387,7 @@ footer {
     width: auto;
     opacity: 0.8;
     transition: var(--transition);
-    filter: brightness(0) invert(1); /* Make SVGs white if they are colored */
+    /* filter removed: SVGs are already white */
 }
 
 .footer-logo:hover {
