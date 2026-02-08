@@ -84,7 +84,7 @@ img {
 }
 
 .section-padding {
-    padding: 80px 0;
+    padding: 100px 0; /* Increased padding for better spacing */
 }
 
 .text-center {
@@ -205,6 +205,10 @@ nav {
 }
 
 /* About Section */
+#about {
+    margin-top: 50px; /* Extra margin to ensure distinct separation from hero/header area */
+}
+
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -257,7 +261,19 @@ nav {
     margin-bottom: 15px;
 }
 
-/* Media Section */
+/* Affiliations */
+.affiliation-link:hover .affiliation-item {
+    transform: translateY(-5px);
+}
+
+.affiliation-item {
+    transition: var(--transition);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+/* Media Section (Legacy) */
 .video-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
@@ -318,20 +334,33 @@ footer {
     }
 
     .nav-links {
-        position: fixed;
-        left: -100%;
+        display: none; /* Hidden by default */
+        position: absolute;
         top: var(--header-height);
-        flex-direction: column;
-        background-color: var(--white);
+        left: 0;
         width: 100%;
+        background-color: var(--white);
+        flex-direction: column;
         text-align: center;
         padding: 20px 0;
         box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-        transition: var(--transition);
     }
 
+    /* The "active" class will be toggled by JS to show the menu */
     .nav-links.active {
-        left: 0;
+        display: flex;
+        animation: dropDown 0.3s ease forwards;
+    }
+
+    @keyframes dropDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .hero h1 {
