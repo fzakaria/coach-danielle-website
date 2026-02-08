@@ -5,7 +5,7 @@
     --text-color: #334155;
     --bg-color: #f8fafc;
     --white: #ffffff;
-    --max-width: 1200px;
+    --max-width: 1400px; /* Increased for more breathing room */
     --header-height: 80px;
     --transition: all 0.3s ease;
 }
@@ -127,7 +127,7 @@ nav {
     /* Ensure logo text is centered vertically if it has line-height issues */
     display: flex;
     align-items: center; 
-    margin-right: auto; /* Push everything else to the right */
+    margin-right: 60px; /* Strong minimum separation */
 }
 
 .logo span {
@@ -136,9 +136,10 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 40px; /* Increased gap between links */
+    gap: 50px; /* Increased gap between individual links */
     align-items: center; /* Vertically align links with logo */
     height: 100%;
+    margin-left: auto; /* Push the group to the right */
 }
 
 .nav-links a {
@@ -397,7 +398,7 @@ footer {
 
 
 /* Mobile Responsive */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .hamburger {
         display: block;
     }
